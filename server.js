@@ -1,32 +1,31 @@
 const express = require('express');
 const app = express();
+
+app.set('view engine', 'pug');
+app.set('views','./views');
 app.use(express.static('assets'));
 
-app.use('/store', function(req, res, next){
-    console.log('Jestem pośrednikiem przy żądaniu do /store');
-    next();
+app.get('/', function(req, res){
+    res.render('content', {
+
+	    response: {
+	        getLogin: req.query.getLogin
+	    },
+  	
+    	user: { 
+    		login: "user1", firstName: "Jan", lastName: "Kowalski" 
+    	},
+
+        title: "Logowanie",
+        url: "/auth/google"
+    });
 });
 
-app.get('/', function (req, res) {
-    res.sendFile('/index.html')
+app.get('/auth/google', function(req, res){
+    res.render('form');
 });
 
-app.get('/userform', function (req, res) {
-    const response = {
-        first_name: req.query.first_name,
-        last_name: req.query.last_name
-    };
-    res.end(JSON.stringify(response));
+app.listen(3000);
+app.use(function (req, res, next) {
+    res.status(404).send('Wybacz, nie mogliśmy odnaleźć tego, czego żądasz!')
 });
-
-app.get('/store', function (req, res) {
-	res.send('To jest sklep');
-});
-
-const server = app.listen(3000, 'localhost', function() {
-    const host = server.address().address;
-    const port = server.address().port;
-
-    console.log('Przykładowa aplikacja nasłuchuje na http://' + host + ':' + port);
-});
-

@@ -1,0 +1,25 @@
+body {
+	background: #eaeaea;
+	font-family: sans-serif;
+}
+
+.logText {
+	padding: 7px;
+}
+
+.logButton {
+	display: inline-block;
+	padding: 5px 20px;
+	font-size: 1.1em;
+	margin: 15px;
+	border: 1px solid lightgrey;
+	background: #fff;
+	border-radius: 5px;
+	color: grey;
+	text-decoration: none;
+}
+
+.logButton:hover {
+	background: lightgrey;
+	color: #fff;
+}

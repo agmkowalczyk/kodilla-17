@@ -1,0 +1,11 @@
+doctype html
+html
+    head
+        title= title
+        link(rel="stylesheet", href="/style.css")
+    body
+        include header.pug    
+        if(user.login.indexOf(response.getLogin) != -1 )
+            include logged.pug 
+        else
+            include log.pug 

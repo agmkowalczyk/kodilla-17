@@ -1,0 +1,10 @@
+doctype html
+html
+    head
+        title= title
+        link(rel="stylesheet", href="/style.css")
+    body
+        include header.pug    
+        form(action="/", method="GET")
+            input.logText(type="text",name="getLogin", placeholder="Podaj swój tajny login") 
+            input.logButton(type="submit", value="Zaloguj")
