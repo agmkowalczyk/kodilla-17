@@ -1,3 +1,7 @@
-h3 Zalogowany jako #{user.login}, #{user.firstName} #{user.lastName}
-p Teraz możesz zobaczyć kotka
-img(src="cat.jpg")
+if(response.getLogin=='user')
+    h3 Zalogowany jako #{user.name}, #{user.firstName} #{user.lastName}
+    p Teraz możesz zobaczyć kotka
+    img(src="cat.jpg")
+else
+    h2 Niepoprawne logowanie
+    include log.pug

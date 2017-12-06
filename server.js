@@ -13,7 +13,7 @@ app.get('/', function(req, res){
 	    },
   	
     	user: { 
-    		login: "user1", firstName: "Jan", lastName: "Kowalski" 
+    		name: "user", firstName: "Jan", lastName: "Kowalski" 
     	},
 
         title: "Logowanie",
@@ -23,6 +23,10 @@ app.get('/', function(req, res){
 
 app.get('/auth/google', function(req, res){
     res.render('form');
+});
+
+app.get('/logged', function(req, res){
+    res.render('logged');
 });
 
 app.listen(3000);
